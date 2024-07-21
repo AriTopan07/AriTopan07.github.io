@@ -24,16 +24,20 @@
 
 	<link rel="stylesheet" href="css/flaticon.css" />
 	<link rel="stylesheet" href="css/style.css" />
+
+	<style>
+		
+	</style>
 </head>
 
 <body>
-	<div class="wrap">
+	<div class="wrap" id="home">
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col-12 col-md d-flex align-items-center">
 					<p class="mb-0 phone">
 						<span class="mailus">Phone no:</span>
-						<a href="http://wa.me/6285289439004">085289439004</a> or
+						<a href="http://wa.me/62881036767757">0881036767757</a> or
 						<span class="mailus">email us:</span>
 						<a href="mailto:kateringdafi@gmail.com">kateringdafi@gmail.com</a>
 					</p>
@@ -60,7 +64,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">
+			<a class="navbar-brand" href="">
 				<img src="images/logo2.png" alt="" height="90px" class="logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -68,34 +72,58 @@
 				<span class="oi oi-menu"></span> Menu
 			</button>
 
-			<div class="collapse navbar-collapse" id="ftco-nav">
+			<div id="ftco-nav" class="collapse navbar-collapse">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a href="index.html" class="nav-link">Home</a>
+					<li class="nav-item" id="home-nav">
+						<a href="" class="nav-link" onclick="scrollToSection('home')">Home</a>
 					</li>
-					<!-- <li class="nav-item">
-						<a href="about.html" class="nav-link">About</a>
+					<li class="nav-item" id="isAbout-nav">
+						<a href="javascript:void(0);" class="nav-link" onclick="scrollToSection('isAbout')">About</a>
 					</li>
-					<li class="nav-item">
-						<a href="chef.html" class="nav-link">Chef</a>
+					<li class="nav-item" id="menus-nav">
+						<a href="javascript:void(0);" class="nav-link" onclick="scrollToSection('menus')">Menu</a>
 					</li>
-					<li class="nav-item">
-						<a href="menu.html" class="nav-link">Menu</a>
+					<li class="nav-item" id="menus-nav">
+						<a href="javascript:void(0);" class="nav-link" onclick="scrollToSection('testi')">Testimonials</a>
 					</li>
-					<li class="nav-item">
-						<a href="reservation.html" class="nav-link">Reservation</a>
+					<li class="nav-item" id="menus-nav">
+						<a href="javascript:void(0);" class="nav-link" onclick="scrollToSection('gallery')">Gallery</a>
 					</li>
-					<li class="nav-item">
-						<a href="blog.html" class="nav-link">Blog</a>
+					<li class="nav-item" id="menus-nav">
+						<a href="javascript:void(0);" class="nav-link" onclick="scrollToSection('contact')">Contact</a>
 					</li>
-					<li class="nav-item">
-						<a href="contact.html" class="nav-link">Contact</a>
-					</li> -->
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<!-- END nav -->
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const sections = document.querySelectorAll('section');
+			const navLi = document.querySelectorAll('.navbar-nav .nav-item');
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						navLi.forEach(li => {
+							li.classList.remove('');
+							if (li.querySelector('a').getAttribute('onclick').includes(entry.target.id)) {
+								li.classList.add('');
+							}
+						});
+					}
+				});
+			}, { threshold: 0.7 });
+
+			sections.forEach(section => {
+				observer.observe(section);
+			});
+		});
+
+		function scrollToSection(section) {
+			document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+		}
+	</script>
 
 	<section class="hero-wrap">
 		<div class="home-slider owl-carousel js-fullheight">
@@ -106,8 +134,10 @@
 						<div class="col-md-12 ftco-animate">
 							<div class="text w-100 mt-5 text-center">
 								<!-- <span class="subheading">DAFI Catering</h2></span> -->
-								<h1>Halal</h1>
-								<span class="subheading-2">Dafi Catering</span>
+								<h1>Pasti Halal</h1>
+								<span class="subheading-2 mb-2">
+									<a href="http://wa.me/62881036767757" class="btn btn-primary">Hubungi Kami</a>
+								</span>
 							</div>
 						</div>
 					</div>
@@ -120,8 +150,10 @@
 						<div class="col-md-12 ftco-animate">
 							<div class="text w-100 mt-5 text-center">
 								<!-- <span class="subheading">DAFI Catering</h2></span> -->
-								<h1>Lengkap</h1>
-								<span class="subheading-2 sub">Dafi Catering</span>
+								<h1>Daftar Terlengkap</h1>
+								<span class="subheading-2 mb-2">
+									<a href="http://wa.me/62881036767757" class="btn btn-primary">Hubungi Kami</a>
+								</span>
 							</div>
 						</div>
 					</div>
@@ -134,8 +166,10 @@
 						<div class="col-md-12 ftco-animate">
 							<div class="text w-100 mt-5 text-center">
 								<!-- <span class="subheading">DAFI Catering</h2></span> -->
-								<h1>Terjangkau</h1>
-								<span class="subheading-2 sub">Dafi Catering</span>
+								<h1>Harga Terjangkau</h1>
+								<span class="subheading-2 mb-2">
+									<a href="http://wa.me/62881036767757" class="btn btn-primary">Hubungi Kami</a>
+								</span>
 							</div>
 						</div>
 					</div>
@@ -149,7 +183,9 @@
 							<div class="text w-100 mt-5 text-center">
 								<!-- <span class="subheading">DAFI Catering</h2></span> -->
 								<h1>Pas Di Lidah</h1>
-								<span class="subheading-2 sub">Dafi Catering</span>
+								<span class="subheading-2 mb-2">
+									<a href="http://wa.me/62881036767757" class="btn btn-primary">Hubungi Kami</a>
+								</span>
 							</div>
 						</div>
 					</div>
@@ -158,16 +194,18 @@
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt">
+	<div id="isAbout" class="mb-5"></div>
+
+	<section class="ftco-section ftco-wrap-about-tes ftco-no-pb ftco-no-pt">
 		<div class="container">
 			<div class="row no-gutters">
-				<div class="col-sm-12 wrap-about py-5 ftco-animate img" style="background-image: url(images/about.jpg)">
+				<div class="col-sm-12 wrap-about py-5 ftco-animate">
 					<div class="row pb-5 pb-md-0">
 						<div class="col-md-12 col-lg-7">
 							<div class="heading-section mt-5 mb-4">
 								<div class="pl-lg-3 ml-md-5">
 									<span class="subheading">About Us</span>
-									<h2 class="mb-4">Welcome to DAFICatering</h2>
+									<h2 class="mb-4">Welcome to Dafi Catering</h2>
 								</div>
 							</div>
 							<div class="pl-lg-3 ml-md-5">
@@ -176,7 +214,7 @@
 									santri dan staff Pesantren Al Qur'an Science DAFI. Salah satunya adalah pelayanan
 									kami dalam bidang catering, yang disebut dengan “Catering Dafi”.
 									<br>
-									Catering Dafi menyediakan menu rumahan yang dapat dinimikmati oleh berbagai macam
+									Catering Dafi menyediakan menu rumahan yang dapat dinikmati oleh berbagai macam
 									kalangan, dan dapat disesuaikan dengan budget yang dimiliki. Dalam pelayanan
 									catering, kami berkomitmen memproduksi produk halal secara konsisten, mencakup
 									konsistensi dalam penggunaan bahan baku, bahan tambahan dan bahan penolong.
@@ -185,8 +223,11 @@
 								</p>
 							</div>
 						</div>
+						<div class="col-md-12 col-lg-5">
+							<div class="background-image" style="background-image: url(images/group2-removebg-preview.png);"></div>
+						</div>
 					</div>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</section>
@@ -196,9 +237,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<span style="color: #fff; border: 2px solid #fff; padding: 5px; border-radius: 5px;">
+					<span>
 						Kenapa harus pilih Catering Dafi ???
-					</span>					
+					</span>
 					<p class="text-light">
 						Catering Dafi menawarkan berbagai pilihan menu dengan harga terjangkau dan kualitas rasa yang
 						mampu bersaing. Proses memasak pada Catering Dafi menggunakan bahan-bahan yang halal, higienis,
@@ -291,7 +332,7 @@
 		</div>
 	</section>
 
-	<section class="ftco-section bg-light">
+	<section class="ftco-section bg-light" id="menus">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-7 text-center heading-section ftco-animate">
@@ -302,7 +343,8 @@
 			<div class="row">
 				<div class="col-md-4 ftco-animate">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/menus/Group\ Menu\ 1.jpg')">
+						<a href="blog-single.html" class="block-20"
+							style="background-image: url('images/menus/Group\ Menu\ 1.jpg')">
 						</a>
 						<div class="text px-4 pt-3 pb-4">
 							<h3 class="heading">
@@ -311,14 +353,15 @@
 								</a>
 							</h3>
 							<p class="clearfix">
-								<a href="#" class="float-left read btn btn-primary">Read more</a>
+								<a href="#" class="float-left read btn btn-primary">Selengkapnya</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 ftco-animate">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/menus/Hemat\ Nasi\ Kuning.jpg')">
+						<a href="blog-single.html" class="block-20"
+							style="background-image: url('images/menus/Hemat\ Nasi\ Kuning.jpg')">
 						</a>
 						<div class="text px-4 pt-3 pb-4">
 							<h3 class="heading">
@@ -327,14 +370,15 @@
 								</a>
 							</h3>
 							<p class="clearfix">
-								<a href="#" class="float-left read btn btn-primary">Read more</a>
+								<a href="#" class="float-left read btn btn-primary">Selengkapnya</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 ftco-animate">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/menus/Harian\ 6.jpg')">
+						<a href="blog-single.html" class="block-20"
+							style="background-image: url('images/menus/Harian\ 6.jpg')">
 						</a>
 						<div class="text px-4 pt-3 pb-4">
 							<h3 class="heading">
@@ -343,7 +387,7 @@
 								</a>
 							</h3>
 							<p class="clearfix">
-								<a href="#" class="float-left read btn btn-primary">Read more</a>
+								<a href="#" class="float-left read btn btn-primary">Selengkapnya</a>
 							</p>
 						</div>
 					</div>
@@ -352,7 +396,7 @@
 		</div>
 	</section>
 
-	<section class="ftco-section">
+	<!-- <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-7 text-center heading-section ftco-animate">
@@ -367,7 +411,8 @@
 							<h3>Paket Nasi Box</h3>
 						</div>
 						<div class="menus d-flex ftco-animate">
-							<div class="menu-img img" style="background-image: url(images/menus/Group\ Menu\ 1.jpg)"></div>
+							<div class="menu-img img" style="background-image: url(images/menus/Group\ Menu\ 1.jpg)">
+							</div>
 							<div class="text">
 								<div class="d-flex">
 									<div class="one-half">
@@ -392,7 +437,8 @@
 							<h3>Paket Hemat</h3>
 						</div>
 						<div class="menus d-flex ftco-animate">
-							<div class="menu-img img" style="background-image: url(images/menus/Hemat\ Nasi\ Kuning.jpg)"></div>
+							<div class="menu-img img"
+								style="background-image: url(images/menus/Hemat\ Nasi\ Kuning.jpg)"></div>
 							<div class="text">
 								<div class="d-flex">
 									<div class="one-half">
@@ -435,8 +481,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!--  -->
 				<div class="col-md-6 col-lg-4">
 					<div class="menu-wrap">
 						<div class="heading-menu text-center ftco-animate">
@@ -547,9 +591,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-	<section class="ftco-section testimony-section" style="background-image: url(images/Nasi\ Bakar.jpg)">
+	<section class="ftco-section testimony-section" style="background-image: url(images/Nasi\ Bakar.jpg)" id="testi">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
@@ -558,96 +602,100 @@
 					<h2 class="mb-4">Happy Customer</h2>
 				</div>
 			</div>
+			<style>
+				.carousel-testimony .item {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 600px;
+				}
+
+				.carousel-testimony img {
+					max-width: 100%;
+					max-height: 100%;
+				}
+			</style>
 			<div class="row ftco-animate justify-content-center">
 				<div class="col-md-7">
 					<div class="carousel-testimony owl-carousel ftco-owl">
 						<div class="item">
 							<div class="testimony-wrap text-center">
 								<div class="text p-3">
-									<p class="mb-4">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
-									</p>
-									<div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-										<span class="quote d-flex align-items-center justify-content-center">
-											<i class="fa fa-quote-left"></i>
-										</span>
+									<div class="">
+										<img src="images/testi/T1.jpeg" alt="">
 									</div>
-									<p class="name">John Gustavo</p>
-									<span class="position">Customer</span>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-wrap text-center">
 								<div class="text p-3">
-									<p class="mb-4">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
-									</p>
-									<div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-										<span class="quote d-flex align-items-center justify-content-center">
-											<i class="fa fa-quote-left"></i>
-										</span>
+									<div class="">
+										<img src="images/testi/T2.jpeg" alt="">
 									</div>
-									<p class="name">John Gustavo</p>
-									<span class="position">Customer</span>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-wrap text-center">
 								<div class="text p-3">
-									<p class="mb-4">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
-									</p>
-									<div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-										<span class="quote d-flex align-items-center justify-content-center">
-											<i class="fa fa-quote-left"></i>
-										</span>
+									<div class="">
+										<img src="images/testi/T3.jpeg" alt="">
 									</div>
-									<p class="name">John Gustavo</p>
-									<span class="position">Customer</span>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-wrap text-center">
 								<div class="text p-3">
-									<p class="mb-4">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
-									</p>
-									<div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-										<span class="quote d-flex align-items-center justify-content-center">
-											<i class="fa fa-quote-left"></i>
-										</span>
+									<div class="">
+										<img src="images/testi/T4.jpeg" alt="">
 									</div>
-									<p class="name">John Gustavo</p>
-									<span class="position">Customer</span>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-wrap text-center">
 								<div class="text p-3">
-									<p class="mb-4">
-										Far far away, behind the word mountains, far from the
-										countries Vokalia and Consonantia, there live the blind
-										texts.
-									</p>
-									<div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-										<span class="quote d-flex align-items-center justify-content-center">
-											<i class="fa fa-quote-left"></i>
-										</span>
+									<div class="">
+										<img src="images/testi/T5.jpeg" alt="">
 									</div>
-									<p class="name">John Gustavo</p>
-									<span class="position">Customer</span>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap text-center">
+								<div class="text p-3">
+									<div class="">
+										<img src="images/testi/T6.jpeg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap text-center">
+								<div class="text p-3">
+									<div class="">
+										<img src="images/testi/T7.jpeg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap text-center">
+								<div class="text p-3">
+									<div class="">
+										<img src="images/testi/T8.jpeg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap text-center">
+								<div class="text p-3">
+									<div class="">
+										<img src="images/testi/T9.jpeg" alt="">
+									</div>
 								</div>
 							</div>
 						</div>
@@ -657,136 +705,60 @@
 		</div>
 	</section>
 
-	<!-- <section class="ftco-section bg-light">
+	<section class="ftco-section bg-light" id="gallery">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-7 text-center heading-section ftco-animate">
-					<span class="subheading">Chef</span>
-					<h2 class="mb-4">Our Master Chef</h2>
+					<span class="subheading">Galley</span>
+					<h2 class="mb-4">Our Galley</h2>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
 					<div class="staff">
-						<div class="img" style="background-image: url(images/chef-4.jpg)"></div>
-						<div class="text px-4 pt-2">
-							<h3>John Gustavo</h3>
-							<span class="position mb-2">CEO, Co Founder</span>
-							<div class="faded">
-								<p>
-									I am an ambitious workaholic, but apart from that, pretty
-									simple person.
-								</p>
-								<ul class="ftco-social d-flex">
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-twitter"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-facebook"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-google-plus"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-instagram"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						<div class="img" style="background-image: url(images/opr/Dapur\ 1.jpeg)"></div>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
 					<div class="staff">
-						<div class="img" style="background-image: url(images/chef-2.jpg)"></div>
-						<div class="text px-4 pt-2">
-							<h3>Michelle Fraulen</h3>
-							<span class="position mb-2">Head Chef</span>
-							<div class="faded">
-								<p>
-									I am an ambitious workaholic, but apart from that, pretty
-									simple person.
-								</p>
-								<ul class="ftco-social d-flex">
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-twitter"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-facebook"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-google-plus"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-instagram"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						<div class="img" style="background-image: url(images/opr/Dapur\ 2.jpeg)"></div>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
 					<div class="staff">
-						<div class="img" style="background-image: url(images/chef-3.jpg)"></div>
-						<div class="text px-4 pt-2">
-							<h3>Alfred Smith</h3>
-							<span class="position mb-2">Chef Cook</span>
-							<div class="faded">
-								<p>
-									I am an ambitious workaholic, but apart from that, pretty
-									simple person.
-								</p>
-								<ul class="ftco-social d-flex">
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-twitter"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-facebook"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-google-plus"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-instagram"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						<div class="img" style="background-image: url(images/opr/Kantor\ 1.jpeg)"></div>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
 					<div class="staff">
-						<div class="img" style="background-image: url(images/chef-1.jpg)"></div>
-						<div class="text px-4 pt-2">
-							<h3>Antonio Santibanez</h3>
-							<span class="position mb-2">Chef Cook</span>
-							<div class="faded">
-								<p>
-									I am an ambitious workaholic, but apart from that, pretty
-									simple person.
-								</p>
-								<ul class="ftco-social d-flex">
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-twitter"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-facebook"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-google-plus"></span></a>
-									</li>
-									<li class="ftco-animate">
-										<a href="#"><span class="icon-instagram"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						<div class="img" style="background-image: url(images/opr/Kantor\ 2.jpeg)"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
+					<div class="staff">
+						<div class="img" style="background-image: url(images/opr/Kantor\ 3.jpeg)"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
+					<div class="staff">
+						<div class="img" style="background-image: url(images/opr/Masak\ 2.jpeg)"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
+					<div class="staff">
+						<div class="img" style="background-image: url(images/opr/Masak\ 3.jpeg)"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4 col-sm-6 ftco-animate mb-5">
+					<div class="staff">
+						<div class="img" style="background-image: url(images/opr/Masak\ 4.jpeg)"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb">
+	<!-- <section class="ftco-section ftco-no-pt ftco-no-pb">
 		<div class="container">
 			<div class="row d-flex">
 				<div class="col-md-6 d-flex">
@@ -881,9 +853,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-intro bg-primary">
+	<!-- <section class="ftco-section ftco-no-pt ftco-no-pb ftco-intro bg-primary">
 		<div class="container py-5">
 			<div class="row py-2">
 				<div class="col-md-12 text-center">
@@ -894,90 +866,98 @@
 		</div>
 	</section> -->
 
-	<!-- <footer class="ftco-footer ftco-no-pb ftco-section">
+	<footer class="ftco-footer ftco-no-pb ftco-section" id="contact">
 		<div class="container">
 			<div class="row mb-5">
-				<div class="col-md-6 col-lg-3">
+				<div class="col-md-6 col-lg-4">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Taste.it</h2>
+						<h2 class="ftco-heading-2">
+							<img src="images/logo2.png" alt="" height="90px" class="logo">
+						</h2>
 						<p>
-							Far far away, behind the word mountains, far from the countries
-							Vokalia and Consonantia, there live the blind texts. Separated
-							they live in Bookmarksgrove
+							Bidang Usaha Dafi merupakan perusahaan yang menyediakan berbagai pelayanan kepada santri dan
+							staff Pesantren Al Qur'an Science DAFI. Salah satunya adalah pelayanan kami dalam bidang
+							catering, yang disebut dengan <strong>“Catering Dafi”</strong>.
 						</p>
 						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
 							<li class="ftco-animate">
-								<a href="#"><span class="fa fa-twitter"></span></a>
+								<a href="https://www.facebook.com/profile.php?id=100091345354857" target="_blank"
+								class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i
+										class="sr-only">Facebook</i></span></a>
 							</li>
 							<li class="ftco-animate">
-								<a href="#"><span class="fa fa-facebook"></span></a>
+								<a href="https://www.tiktok.com/@cateringdafi?_t=8brHB0hXbAQ&_r=1" target="_blank"
+								class="d-flex align-items-center justify-content-center"><span
+									class="fa-brands fa-tiktok"><i class="sr-only">Twitter</i></span></a>
 							</li>
 							<li class="ftco-animate">
-								<a href="#"><span class="fa fa-instagram"></span></a>
+								<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank"
+								class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+							</li>
+							<li class="ftco-animate">
+								<a href="http://wa.me/62881036767757" target="_blank"
+								class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-whatsapp"><i class="sr-only">Whatsapp</i></span></a>
+							</li>
+							<li class="ftco-animate">
+								<a href="https://maps.app.goo.gl/nfYLeN7M2da8hSHJ8" target="_blank"
+								class="d-flex align-items-center justify-content-center"><span
+									class="fa-solid fa-location-dot"><i class="sr-only">Maps</i></span></a>
+							</li>
+							<li class="ftco-animate">
+								<a href="mailto:kateringdafi@gmail.com" target="_blank"
+								class="d-flex align-items-center justify-content-center"><span
+									class="fa-solid fa-envelope"><i class="sr-only">Mail</i></span></a>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3">
+				<div class="col-md-6 col-lg-4">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Open Hours</h2>
 						<ul class="list-unstyled open-hours">
 							<li class="d-flex">
-								<span>Monday</span><span>9:00 - 24:00</span>
+								<span>Senin</span><span>07:00 - 17:00</span>
 							</li>
 							<li class="d-flex">
-								<span>Tuesday</span><span>9:00 - 24:00</span>
+								<span>Selasa</span><span>07:00 - 17:00</span>
 							</li>
 							<li class="d-flex">
-								<span>Wednesday</span><span>9:00 - 24:00</span>
+								<span>Rabu</span><span>07:00 - 17:00</span>
 							</li>
 							<li class="d-flex">
-								<span>Thursday</span><span>9:00 - 24:00</span>
+								<span>Kamis</span><span>07:00 - 17:00</span>
 							</li>
 							<li class="d-flex">
-								<span>Friday</span><span>9:00 - 02:00</span>
+								<span>Jum'at</span><span>07:00 - 17:00</span>
 							</li>
 							<li class="d-flex">
-								<span>Saturday</span><span>9:00 - 02:00</span>
+								<span>Sabtu</span><span>07:00 - 17:00</span>
 							</li>
-							<li class="d-flex"><span>Sunday</span><span> Closed</span></li>
+							<li class="d-flex"><span>Minggu</span><span> 07:00 - 13:00</span></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3">
+				<div class="col-md-6 col-lg-4">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Instagram</h2>
 						<div class="thumb d-sm-flex">
-							<a href="#" class="thumb-menu img" style="background-image: url(images/insta-1.jpg)">
+							<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank" class="thumb-menu img" style="background-image: url(images/menus/Group\ Menu\ 1.jpg)">
 							</a>
-							<a href="#" class="thumb-menu img" style="background-image: url(images/insta-2.jpg)">
+							<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank" class="thumb-menu img" style="background-image: url(images/menus/Harian\ 6.jpg)">
 							</a>
-							<a href="#" class="thumb-menu img" style="background-image: url(images/insta-3.jpg)">
+							<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank" class="thumb-menu img" style="background-image: url(images/menus/Hemat\ Nasi\ Kuning.jpg)">
 							</a>
 						</div>
 						<div class="thumb d-flex">
-							<a href="#" class="thumb-menu img" style="background-image: url(images/insta-4.jpg)">
+							<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank" class="thumb-menu img" style="background-image: url(images/hero/hero-bg1.jpg)">
 							</a>
-							<a href="#" class="thumb-menu img" style="background-image: url(images/insta-5.jpg)">
+							<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank" class="thumb-menu img" style="background-image: url(images/hero/hero-bg2.jpg)">
 							</a>
-							<a href="#" class="thumb-menu img" style="background-image: url(images/insta-6.jpg)">
+							<a href="https://instagram.com/cateringdafi?igshid=ZDdkNTZiNTM=" target="_blank" class="thumb-menu img" style="background-image: url(images/hero/hero-bg3.jpg)">
 							</a>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Newsletter</h2>
-						<p>
-							Far far away, behind the word mountains, far from the countries.
-						</p>
-						<form action="#" class="subscribe-form">
-							<div class="form-group">
-								<input type="text" class="form-control mb-2 text-center"
-									placeholder="Enter email address" />
-								<input type="submit" value="Subscribe" class="form-control submit px-3" />
-							</div>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -986,18 +966,18 @@
 			<div class="row no-gutters">
 				<div class="col-md-12 text-center">
 					<p class="mb-0">
-						Copyright &copy;
+						Copyright &copy; Dafi Catering
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						All rights reserved | This template is made with
-						<i class="fa fa-heart" aria-hidden="true"></i> by
-						<a href="https://colorlib.com" target="_blank">Colorlib</a>
+						All rights reserved | This template is made by
+						<a href="https://colorlib.com" target="_blank">Colorlib</a> | Customize by
+						<a href="http://wa.me/6282141938309" target="_blank">Ariradev</a>
 					</p>
 				</div>
 			</div>
 		</div>
-	</footer> -->
+	</footer>
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">

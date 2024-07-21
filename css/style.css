@@ -320,6 +320,9 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1rem; }
 
+
+  /* custom */
+
   .subheading {
     color: #EF5B0C !important;
   }
@@ -351,6 +354,37 @@ h6, .h6 {
       height: 60px !important;
     }
   }
+
+  .nav-item.active .nav-link {
+    color: #EF5B0C !important;
+  }
+
+  .wrap-about {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 450px; /* Adjust height as needed for desktop */
+    border-radius: 8px;
+  }
+
+  @media (max-width: 767px) {
+    .background-image {
+      /* margin-top: 10px; */
+      height: 400px; /* Adjust height for mobile view */
+    }
+
+    .wrap-about .row {
+      flex-direction: column;
+    }
+  }
+
+  /* end-custom */
 
 .lead {
   font-size: 1.25rem;
